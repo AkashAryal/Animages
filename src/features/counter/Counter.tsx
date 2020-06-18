@@ -7,13 +7,19 @@ import {
   incrementAsync,
   selectCount,
 } from './counterSlice';
+import { getLinks } from '../Booru/BooruSlice';
 import styles from './Counter.module.css';
+import { selectBooruLinks } from '../Booru/BooruSlice';
+
 
 export function Counter() {
+  //selector accesses redux store
   const count = useSelector(selectCount);
   const dispatch = useDispatch();
+  //use stae is this components state
   const [incrementAmount, setIncrementAmount] = useState('2');
 
+  const links = useSelector(selectBooruLinks);
   return (
     <div>
       <div className={styles.row}>
@@ -55,6 +61,14 @@ export function Counter() {
           Add Async
         </button>
       </div>
+
+      <button onClick={() => dispatch(getLinks())}> </button>
+      {
+        links.map((link: String) => {
+          return <p>{link}</p>
+        })
+      }
+
     </div>
   );
 }

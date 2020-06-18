@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AppThunk, RootState } from '../../app/store';
-
+import { BooruPost } from '../Booru/types'
+const Booru = require('booru');
 interface CounterState {
   value: number;
 }
@@ -41,6 +42,8 @@ export const incrementAsync = (amount: number): AppThunk => dispatch => {
     dispatch(incrementByAmount(amount));
   }, 1000);
 };
+
+
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
