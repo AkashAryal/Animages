@@ -1,0 +1,28 @@
+.tagify {
+  /*margin-bottom: 3em; */
+  --tag-bg: #6C0E42;
+  --tag-text-color: white;
+  --tag-text-color--edit: white;
+  --tag-hover: rgb(162,8,56);
+}
+
+.padding-left-0 {
+  padding-left: 0px !important;
+}
+
+.padding-right-0 {
+  padding-right: 0px !important;
+}
+
+.margin-top{
+  margin-top: 2vh;
+} 
+
+.padding-top{
+  padding-top: 2vh;
+}
+
+.override-form-control{
+  width:62% !important;
+  height: calc(1.35em + 0.5rem + 2px) !important;
+}

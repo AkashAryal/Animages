@@ -1,57 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { ScrollView } from './components/ScrollView/ScrollView';
+import { Login } from './components/auth/Login'
+import { Register } from './components/auth/Register'
+import { PrivateRoute } from './components/auth/PrivateRoute'
+import Navbar from './components/home/Navbar';
+import { Home } from './components/home/Home';
+import { BrowseImages } from './components/Browse/BrowseImages'
+import { Logout } from './components/auth/Logout';
+import { useSelector } from 'react-redux';
+import { selectBooruLinks } from './app/Booru/BooruSlice';
+import { Favorites } from './components/favorites/Favorite';
 
 function App() {
+  const links: string[] = useSelector(selectBooruLinks);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+
+    <Router>
+      <Navbar />
+      <Switch>
+        <Route path="/scrollView/:id" component={ScrollView} />
+        <Route exact path="/" component={Home} />
+        <PrivateRoute allowIfAuth={false} redirect="/" path="/login" component={Login} />
+        <Route path="/register" component={Register} />
+        <PrivateRoute allowIfAuth={true} redirect="/" path="/browse" render={(props: any) => <BrowseImages {...props} links={links} />} />
+        <PrivateRoute allowIfAuth={true} redirect="/" path="/logout" component={Logout} />
+        <PrivateRoute allowIfAuth={true} redirect="/" path="/favorites" component={Favorites} />
+      </Switch>
+    </Router>
   );
 }
 

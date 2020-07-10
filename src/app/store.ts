@@ -1,12 +1,12 @@
 import { configureStore, ThunkAction, Action, getDefaultMiddleware } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
 import logger from 'redux-logger';
-import booruSlice from '../features/Booru/BooruSlice';
+import booruSlice from './Booru/BooruSlice';
+import authSlice from '../components/auth/authSlice';
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
-    booru: booruSlice
+    booru: booruSlice,
+    auth: authSlice
   },
   middleware: [...getDefaultMiddleware(), logger]
 });
