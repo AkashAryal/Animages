@@ -1,4 +1,7 @@
-This project allows you to browse various booru image boards in one location
+This project allows you to browse various booru image boards in one location. 
+Frontend uses react with the redux-toolkit. Images utilize lazy loading
+The backend uses nodejs + express with typescript along with typeORM for the mysql database.
+Authentication is done with jwt.
 
 ## Available Scripts
 
