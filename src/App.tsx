@@ -19,7 +19,7 @@ function App() {
     <Router>
       <Navbar />
       <Switch>
-        <Route path="/scrollView/:id" component={ScrollView} />
+        <Route path="/scrollView/:id/:favUrls" component={ScrollView} />
         <Route exact path="/" component={Home} />
         <PrivateRoute allowIfAuth={false} redirect="/" path="/login" component={Login} />
         <Route path="/register" component={Register} />

@@ -122,7 +122,7 @@ export function SearchBar() {
                 <option selected>Select Booru to use</option>
                 {
                   BOORUS.map((booru: string) => {
-                    return <option value={booru}>{booru}</option>
+                    return <option value={booru}>{booru + (booru.localeCompare("yandere") == 0 ? " (much slower)" : "")}</option>
                   })
                 }
               </select>

@@ -42,10 +42,14 @@ export function ImageCard(props: any) {
 
   const favOrNot = async () => {
     //fetch call with imgUrl and user
+    console.log(imgUrl);
+
     const res: Response = await fetchFav("isFav");
     const body = await res.json();
 
     //return favorite or unfavorite text
+    console.log("is this img a fav", body.data);
+
     if (body.data === true)
       return "Unfavorite"
     else
@@ -105,16 +109,19 @@ export function ImageCard(props: any) {
         {/**
          * presence of maxWidth menas this card comes from scrollview
          */}
-        {maxHeight == null && <Link to={{ pathname: `/scrollView/${links.indexOf(imgUrl)}`, state: links }}>
-          <LazyLoad once={true} placeholder={<div style={{ minHeight: "100vh", height: "100vh" }}>loading...</div>} height={"100vh"} offset={-100}>
-            <div className="post-img">
-              <img referrerPolicy="no-referrer" className="card-img-top" src={imgUrl} />
-            </div>
-          </LazyLoad>
-        </Link>}
+        {maxHeight == null &&
+          <Link to={{ pathname: `/scrollView/${links.indexOf(imgUrl)}/${encodeURIComponent(JSON.stringify(links))}`, state: links }}>
+            <LazyLoad once={true} placeholder={<div style={{ minHeight: "100vh", height: "100vh" }}>loading...</div>} height={"100vh"} offset={-100}>
+              <div className="post-img">
+                <img referrerPolicy="no-referrer" className="card-img-top" src={decodeURIComponent(imgUrl)} />
+              </div>
+            </LazyLoad>
+          </Link>
+        }
+
         {
           maxHeight != null &&
-          <img referrerPolicy="no-referrer" className="card-img-top" src={imgUrl} style={{ maxHeight: maxHeight, objectFit: "scale-down", width: "auto" }} />
+          <img referrerPolicy="no-referrer" className="card-img-top" src={decodeURIComponent(imgUrl)} style={{ maxHeight: maxHeight, objectFit: "scale-down", width: "auto" }} />
 
         }
         {loggedIn &&

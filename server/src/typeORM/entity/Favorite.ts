@@ -1,5 +1,4 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToMany, ManyToOne } from "typeorm";
-import { getConnection, Connection } from 'typeorm';
 import { User } from "./User";
 @Entity()
 export class Favorite {
@@ -8,7 +7,7 @@ export class Favorite {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column("longtext")
   imgUrl: string;
 
   //FK

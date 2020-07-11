@@ -6,7 +6,24 @@
   background-size: cover;
 }
 
+.bg2 {
+  background-image: url("/cb.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
 .btn:focus, .btn:active {
   outline: none !important;
   box-shadow: none !important;
 }
+
+.padding-top{
+  padding-top: 15vh;
+}
+
+.galada{
+  font-family: 'Galada', cursive;
+}
+

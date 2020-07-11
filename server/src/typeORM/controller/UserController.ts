@@ -58,21 +58,25 @@ export class UserController {
   }
 
   async removeFavoriteByUserId(id: number, favUrl: string) {
+    //console.log("to remove url", `'${favUrl}'`);
+
     const fav: Favorite = await this.manager.findOneOrFail(Favorite, { imgUrl: favUrl, userId: id });
 
     this.manager.remove(fav);
   }
 
   async hasFavoriteByUserId(id: number, favUrl) {
+    console.log("url to match", favUrl);
+
     const user = await this.manager.findOneOrFail(User, { id: id });
     //loggin user here wont show favorites since its a promise
     const favorites = await user.favorites;
     //since we awaited. Now from here on we have access to favorites
-    console.log("fav", favorites);
 
     let ret = false;
     favorites.forEach(element => {
-      if (element.imgUrl === favUrl) {
+      //console.log(decodeURIComponent(element.imgUrl));
+      if ((element.imgUrl).localeCompare(favUrl) == 0) {
         console.log("any true");
         ret = true;
       }

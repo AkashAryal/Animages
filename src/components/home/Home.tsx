@@ -1,16 +1,14 @@
 import React from 'react';
-import { navLink } from './types';
-import { NavLink } from 'react-router-dom';
 
 //assumes navLink should render
 
 export function Home() {
   return (
     <div>
-      <div className="container">
+      <div className="container bg2" style={{ height: "90vh", paddingTop: "30vh" }}>
         <div className="row d-flex justify-content-center">
-          <div className="col-md-8">
-            YO home
+          <div className="display-1 galada padding-top">
+            Welcome to Animages
           </div>
         </div>
       </div>
