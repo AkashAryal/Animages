@@ -8,8 +8,7 @@ Authentication is done with jwt.
 To start the client in the project directory, you can run:
 `npm run start`
 
-To start the server run 
-`npm run dev`
+To start the server run `npm run dev` in the server directory
 
 Note for this project we use typeORM with mysql. The config information is located at 
 `server/ormconfig.json`. 
