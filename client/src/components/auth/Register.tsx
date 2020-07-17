@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setAuthToken, selectAuth } from './authSlice';
 import { Link } from 'react-router-dom';
+import { BASE_URL } from '../../consts';
 
 export function Register(props: any) {
   console.log("props.match", props.match);
@@ -9,7 +10,7 @@ export function Register(props: any) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const register = async () => {
-    const res = await fetch("http://localhost:3001/register", {
+    const res = await fetch(`${BASE_URL}/register`, {
       method: "POST",
       headers: {
         'Accept': 'application/json',

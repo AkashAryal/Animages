@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectAuth } from './authSlice';
+import { BASE_URL } from '../../consts';
 
 export function Login(props: any) {
   const [username, setUsername] = useState('');
@@ -8,7 +9,7 @@ export function Login(props: any) {
   const authId = useSelector(selectAuth);
   console.log(authId);
   const login = async () => {
-    const res = await fetch("http://localhost:3001/login", {
+    const res = await fetch(`${BASE_URL}/login`, {
       method: "POST",
       headers: {
         'Accept': 'application/json',

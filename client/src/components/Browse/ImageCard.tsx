@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectBooruLinks } from '../../app/Booru/BooruSlice';
 import { Link } from 'react-router-dom';
-import { log } from 'util';
-import { FaHeart } from 'react-icons/fa';
 import LazyLoad from 'react-lazyload';
-
+import { BASE_URL } from '../../consts';
 //props has a imgUrl field
 export function ImageCard(props: any) {
   const favLinks = props.favRefresher.li;
@@ -27,7 +25,7 @@ export function ImageCard(props: any) {
 
   const maxHeight = props.maxHeight;
   const fetchFav = async (endpoint: string) => {
-    return await fetch(`http://localhost:3001/fav/${endpoint}`, {
+    return await fetch(`${BASE_URL}/fav/${endpoint}`, {
       method: "POST",
       headers: {
         'Accept': 'application/json',

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowseImages } from '../Browse/BrowseImages';
-
+import { BASE_URL } from '../../consts';
 export function Favorites() {
   const [load, setLoad] = useState(false);
   const [links, setLinks] = useState([]);
@@ -14,7 +14,7 @@ export function Favorites() {
     const userId = localStorage.getItem("authToken");
     if (userId === null) return [];
 
-    const favs = await fetch(`http://localhost:3001/fav/getFavs`, {
+    const favs = await fetch(`${BASE_URL}/fav/getFavs`, {
       method: "GET",
       headers: {
         'Accept': 'application/json',
