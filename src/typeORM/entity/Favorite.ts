@@ -8,7 +8,7 @@ export class Favorite {
   id: number;
 
   @Index()
-  @Column("longtext")
+  @Column(process.env.NODE_ENV === 'production' ? "text" : "longtext")
   imgUrl: string;
 
   //FK

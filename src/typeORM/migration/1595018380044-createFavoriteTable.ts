@@ -23,7 +23,7 @@ export class createFavoriteTable1595018380044 implements MigrationInterface {
                 },
                 {
                     name: "imgUrl",
-                    type: "longtext",
+                    type: process.env.NODE_ENV === 'production' ? "text" : "longtext",
                     isNullable: false
                 }
             ]
