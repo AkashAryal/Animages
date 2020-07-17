@@ -24,10 +24,6 @@ app.use("/test", testRouter);
 app.use("/login", loginRouter);
 app.use("/register", registerRouter);
 app.use("/fav", favRouter);
-//Capture All 404 errors
-app.use(function (req: Request, res: Response) {
-  res.status(404).send('Unable to find the requested resource!');
-});
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static("client/build"));
@@ -35,6 +31,11 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
   })
 }
+
+//Capture All 404 errors
+app.use(function (req: Request, res: Response) {
+  res.status(404).send('Unable to find the requested resource!');
+});
 
 app.listen(PORT, function () {
   console.log(`Example app listening on port ${PORT}!`);
