@@ -23,7 +23,7 @@ function App() {
         <Route exact path="/" component={Home} />
         <PrivateRoute allowIfAuth={false} redirect="/" path="/login" component={Login} />
         <Route path="/register" component={Register} />
-        <PrivateRoute allowIfAuth={true} redirect="/" path="/browse" render={(props: any) => <BrowseImages {...props} links={links} />} />
+        <Route path="/browse" render={(props: any) => <BrowseImages {...props} links={links} />} />
         <PrivateRoute allowIfAuth={true} redirect="/" path="/logout" component={Logout} />
         <PrivateRoute allowIfAuth={true} redirect="/" path="/favorites" component={Favorites} />
       </Switch>

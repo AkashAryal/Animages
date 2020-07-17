@@ -69,6 +69,8 @@ export function SearchBar() {
       setError("Num Res out of bounds");
       return;
     }
+    console.log("got ot dispatch");
+
     dispatch(getLinks(arr, showNSFW, booru, numRes));
   }
 

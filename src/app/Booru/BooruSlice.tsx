@@ -26,6 +26,8 @@ export const getLinks = (tags: string[], showNSFW: boolean, selectedBooru: strin
     tags: tagsP,
     limit: numRes,
   });
+  console.log(imgsUrls);
+
   dispatch(populate(imgsUrls));
 };
 

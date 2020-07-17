@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToMany, ManyToOne } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, Index } from "typeorm";
 import { User } from "./User";
 @Entity()
 export class Favorite {
@@ -7,6 +7,7 @@ export class Favorite {
   @PrimaryGeneratedColumn()
   id: number;
 
+  @Index()
   @Column("longtext")
   imgUrl: string;
 
