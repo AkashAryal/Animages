@@ -1,58 +1,35 @@
 {
-  "name": "animages",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.13.1",
-    "@fortawesome/free-solid-svg-icons": "^5.13.1",
-    "@fortawesome/react-fontawesome": "^0.1.11",
-    "@reduxjs/toolkit": "^1.2.5",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "@types/jest": "^24.0.0",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
-    "@types/react-lazyload": "^2.6.0",
-    "@types/react-redux": "^7.1.7",
-    "@types/react-router-dom": "^5.1.5",
-    "@types/redux-logger": "^3.0.8",
-    "@yaireo/tagify": "^3.11.3",
-    "bootstrap": "^4.5.0",
-    "fetch": "^1.1.0",
-    "kaori": "^2.0.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-icons": "^3.10.0",
-    "react-lazyload": "^3.0.0",
-    "react-redux": "^7.2.0",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
-    "redux-logger": "^3.0.6",
-    "typescript": "~3.8.2",
-    "vanilla-lazyload": "^17.1.0"
-  },
-  "proxy": "http://127.0.0.1:3000",
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+   "name": "animages",
+   "version": "0.0.1",
+   "description": "Awesome project developed with TypeORM.",
+   "devDependencies": {
+      "@types/node": "^8.0.29",
+      "typescript": "3.3.3333"
+   },
+   "dependencies": {
+      "@types/bcrypt": "^3.0.0",
+      "@types/cookie-parser": "^1.4.2",
+      "@types/cors": "^2.8.6",
+      "@types/express": "^4.17.6",
+      "@types/jsonwebtoken": "^8.5.0",
+      "@types/morgan": "^1.9.1",
+      "bcrypt": "^5.0.0",
+      "cookie-parser": "^1.4.5",
+      "cors": "^2.8.5",
+      "express": "^4.17.1",
+      "jsonwebtoken": "^8.5.1",
+      "morgan": "^1.10.0",
+      "mysql": "^2.14.1",
+      "nodemon": "^2.0.4",
+      "pg-connection-string": "^2.3.0",
+      "reflect-metadata": "^0.1.10",
+      "ts-node": "^3.3.0",
+      "typeorm": "0.2.25"
+   },
+   "scripts": {
+      "start": "ts-node src/index.ts",
+      "dev": "nodemon -x ts-node src/index.ts",
+      "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js",
+      "heroku-postbuild": "cd client && npm install && npm run build"
+   }
 }

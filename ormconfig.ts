@@ -1,4 +1,5 @@
 import parser from 'pg-connection-string';
+
 let herokuURl: parser.ConnectionOptions = {
    host: "",
    port: "",
@@ -7,7 +8,7 @@ let herokuURl: parser.ConnectionOptions = {
    database: ""
 };
 
-if (process.env.NODE_ENV == 'production') {
+if (process.env.NODE_ENV === 'production') {
    console.log("in prod");
 
    herokuURl = parser.parse(process.env.DATABASE_URL);
