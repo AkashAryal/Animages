@@ -33,9 +33,9 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 //Capture All 404 errors
-app.use(function (req: Request, res: Response) {
+/*app.use(function (req: Request, res: Response) {
   res.status(404).send('Unable to find the requested resource!');
-});
+});*/
 
 app.listen(PORT, function () {
   console.log(`Example app listening on port ${PORT}!`);
