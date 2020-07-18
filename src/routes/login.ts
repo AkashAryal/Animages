@@ -16,8 +16,11 @@ router.post('/', async function (req, res) {
 
   const validPass = await bcrypt.compare(password, user.password)
     .catch(e => {
-      res.status(400).send({ error: "Invalid Credentials" })
+      return res.status(400).send({ error: "Invalid Credentials" });
     });
+
+  if (validPass == false)
+    return res.status(400).send({ error: "Invalid Credentials" });
 
   const token = jwt.sign({ id: user.id }, JWT_SEC_TOKEN);
   res.header("Access-Control-Expose-Headers", "authToken");
