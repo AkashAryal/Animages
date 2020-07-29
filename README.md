@@ -1,4 +1,4 @@
-#Animages
+## Animages
 This project allows you to browse various booru image boards in one location. 
 Frontend uses react with the redux-toolkit. Images utilize lazy loading
 The backend uses nodejs + express with typescript along with typeORM for the mysql database.
