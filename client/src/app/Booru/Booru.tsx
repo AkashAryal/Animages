@@ -7,6 +7,15 @@ export const BOORUS = [
   "yandere"
 ]
 
+export type btl = {
+  [key: string]: number,
+}
+
+export const booruTagLimit: btl = {
+  danbooru: 2,
+  yandere: 6
+};
+
 export class Booru {
   private site: string;
 

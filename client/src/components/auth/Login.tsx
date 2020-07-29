@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectAuth } from './authSlice';
 import { BASE_URL } from '../../consts';
+import { Form } from "./Form";
 
 export function Login(props: any) {
   const [username, setUsername] = useState('');
@@ -9,6 +10,8 @@ export function Login(props: any) {
   const authId = useSelector(selectAuth);
   console.log(authId);
   const login = async () => {
+    if (username === '' || password === '') return;
+
     const res = await fetch(`${BASE_URL}/login`, {
       method: "POST",
       headers: {
@@ -25,18 +28,21 @@ export function Login(props: any) {
       localStorage.setItem("authToken", res.headers.get("authToken")!);
       props.history.push("/");
     } else {
-      console.log("error when registering", res);
+      console.log("error when login", res);
     }
   }
 
   return (
-    <div>
-      <label htmlFor="username">Username</label>
-      <input type="text" onChange={(e) => setUsername(e.target.value)} />
-      <label htmlFor="password">Password</label>
-      <input type="password" onChange={(e) => setPassword(e.target.value)} />
+    <div className="container">
+      {
 
-      <button onClick={login}></button>
+      }
+      <div className="row">
+        <div className="col-md-6 offset-md-3 col-sm-12">
+          <Form title="Login" onSubmit={login} setPassword={setPassword} setUsername={setUsername} />
+        </div>
+      </div>
+
     </div>
   )
 }

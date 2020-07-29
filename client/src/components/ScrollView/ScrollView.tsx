@@ -24,13 +24,17 @@ export function ScrollView(props: any) {
 
 
   return (
-    <div className="container">
-      {id - 1 >= 0 && <Link to={{ pathname: `/scrollView/${id - 1}/${props.match.params.favUrls}`, state: links }}>Left</Link>}
-      {id + 1 <= links.length - 1 && <Link to={{ pathname: `/scrollView/${id + 1}/${props.match.params.favUrls}`, state: links }}>Right</Link>}
+    <div className="container-fluid">
       <div className="row">
-        <div className="col-md-12">
+        <div className="col-md-1 align-self-center">
+          {id - 1 >= 0 && <Link to={{ pathname: `/scrollView/${id - 1}/${props.match.params.favUrls}`, state: links }}>Left</Link>}
+        </div>
+        <div className="col-md-10">
           <ImageCard imgUrl={encodeURI(links[id])} favRefresher={{ change: null, setChange: null, li: null }} maxHeight="83vh" />
 
+        </div>
+        <div className="col-md-1 align-self-center">
+          {id + 1 <= links.length - 1 && <Link to={{ pathname: `/scrollView/${id + 1}/${props.match.params.favUrls}`, state: links }}>Right</Link>}
         </div>
       </div>
 

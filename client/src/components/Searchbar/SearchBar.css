@@ -22,6 +22,11 @@
   padding-top: 2vh;
 }
 
+.search-bar-button:focus, .search-bar-button:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 .override-form-control{
   width:62% !important;
   height: calc(1.35em + 0.5rem + 2px) !important;

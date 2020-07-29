@@ -3,13 +3,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setAuthToken, selectAuth } from './authSlice';
 import { Link } from 'react-router-dom';
 import { BASE_URL } from '../../consts';
+import { Form } from './Form';
 
 export function Register(props: any) {
   console.log("props.match", props.match);
-  const dispatch = useDispatch();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const register = async () => {
+    if (username === '' || password === '') return;
     const res = await fetch(`${BASE_URL}/register`, {
       method: "POST",
       headers: {
@@ -32,14 +33,16 @@ export function Register(props: any) {
   }
 
   return (
-    <div>
-      <label htmlFor="username">Username</label>
-      <input type="text" onChange={(e) => setUsername(e.target.value)} />
-      <label htmlFor="password">Password</label>
-      <input type="password" onChange={(e) => setPassword(e.target.value)} />
+    <div className="container">
+      {
 
-      <button onClick={register}></button>
-      <Link to="/login">H</Link>
+      }
+      <div className="row">
+        <div className="col-md-6 offset-md-3 col-sm-12">
+          <Form title="Register" onSubmit={register} setPassword={setPassword} setUsername={setUsername} />
+        </div>
+      </div>
+
     </div>
   )
 }

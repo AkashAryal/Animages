@@ -20,7 +20,7 @@ module.exports = {
    "port": herokuURl.port || 3306,
    "username": herokuURl.user || "root",
    "password": herokuURl.password || "",
-   "database": herokuURl.database || "learningTypeORM",
+   "database": herokuURl.database || "animages",
    "synchronize": herokuURl != null ? false : false,
    "logging": false,
    "entities": [
