@@ -22,6 +22,7 @@ export function Register(props: any) {
         password: password
       })
     })
+    console.log("finished fetchng register");
 
     if (res.status == 200) {
       console.log("res status is 200", res.headers);

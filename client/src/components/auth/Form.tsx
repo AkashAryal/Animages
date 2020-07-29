@@ -19,7 +19,7 @@ export const Form = (props: Props) => {
           <label htmlFor="pwd">Password:</label>
           <input type="password" className="form-control" id="pwd" onChange={(e) => props.setPassword(e.target.value)} required />
         </div>
-        <button type="submit" className="btn btn-primary" onClick={props.onSubmit}>{props.title}</button>
+        <button type="button" className="btn btn-primary" onClick={props.onSubmit}>{props.title}</button>
 
         {
           props.title === "Login" &&
