@@ -12,7 +12,7 @@ export function Login(props: any) {
   const login = async () => {
     if (username === '' || password === '') return;
 
-    const res = await fetch(`${BASE_URL}/login`, {
+    const res = await fetch(`${BASE_URL}/api/login`, {
       method: "POST",
       headers: {
         'Accept': 'application/json',

@@ -14,7 +14,7 @@ export function Favorites() {
     const userId = localStorage.getItem("authToken");
     if (userId === null) return [];
 
-    const favs = await fetch(`${BASE_URL}/fav/getFavs`, {
+    const favs = await fetch(`${BASE_URL}/api/fav/getFavs`, {
       method: "GET",
       headers: {
         'Accept': 'application/json',

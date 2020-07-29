@@ -25,7 +25,7 @@ export function ImageCard(props: any) {
 
   const maxHeight = props.maxHeight;
   const fetchFav = async (endpoint: string) => {
-    return await fetch(`${BASE_URL}/fav/${endpoint}`, {
+    return await fetch(`${BASE_URL}/api/fav/${endpoint}`, {
       method: "POST",
       headers: {
         'Accept': 'application/json',

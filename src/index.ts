@@ -20,10 +20,10 @@ app.use(morgan('dev'));
 app.use(cookieParse());
 initDB();
 
-app.use("/test", testRouter);
-app.use("/login", loginRouter);
-app.use("/register", registerRouter);
-app.use("/fav", favRouter);
+app.use("/api/test", testRouter);
+app.use("/api/login", loginRouter);
+app.use("/api/register", registerRouter);
+app.use("/api/fav", favRouter);
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, "../client", "build")));

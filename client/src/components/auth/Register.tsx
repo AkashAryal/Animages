@@ -11,7 +11,7 @@ export function Register(props: any) {
   const [password, setPassword] = useState('');
   const register = async () => {
     if (username === '' || password === '') return;
-    const res = await fetch(`${BASE_URL}/register`, {
+    const res = await fetch(`${BASE_URL}/api/register`, {
       method: "POST",
       headers: {
         'Accept': 'application/json',
