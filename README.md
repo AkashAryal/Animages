@@ -12,7 +12,9 @@ To start the client naviagate to the client directory and run :
 To start the server run `npm run dev` in the root directory.
 
 Note for this project we use typeORM with mysql. The config information is located at 
-`server/ormconfig.json`. 
+`ormconfig.ts`. 
+
+To run database migrations, run `npm run typeorm migration:run` in the root directory.
 
 If you get an error form typeORM about the db not existing, create an intial empty db
-matching info in ormconfig.json.
+matching info in ormconfig.ts.
