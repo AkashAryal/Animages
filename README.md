@@ -6,10 +6,10 @@ Authentication is done with jwt.
 
 ## Available Scripts
 
-To start the client in the project directory, you can run:
+To start the client naviagate to the client directory and run :
 `npm run start`
 
-To start the server run `npm run dev` in the server directory
+To start the server run `npm run dev` in the root directory.
 
 Note for this project we use typeORM with mysql. The config information is located at 
 `server/ormconfig.json`. 
