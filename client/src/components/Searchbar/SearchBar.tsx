@@ -17,11 +17,11 @@ export function SearchBar() {
     return {
       maxTags: showNSFW ? maxTags - 1 : maxTags,
       //backspace: "edit",
-      placeholder: "type something",
+      placeholder: "type a tag (eg. Pokemon)",
       dropdown: {
         enabled: 1 // a;ways show suggestions dropdown
       }//,
-      //whitelist: ["maid", "loli"]
+
     }
   }
   const [baseTagifySettings, setbaseTagifySetting] = useState(createBaseTagSettings(booruTagLimit.danbooru));
