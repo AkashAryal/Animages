@@ -109,7 +109,7 @@ export function ImageCard(props: any) {
          */}
         {maxHeight == null &&
           <Link to={{ pathname: `/scrollView/${links.indexOf(imgUrl)}/${encodeURIComponent(JSON.stringify(links))}`, state: links }}>
-            <LazyLoad once={true} placeholder={<div style={{ minHeight: "100vh", height: "100vh" }}>loading...</div>} height={"100vh"} offset={-100}>
+            <LazyLoad once={true} placeholder={<div style={{ minHeight: "100vh", height: "100vh" }}>loading...</div>} height={"100vh"} offset={-30}>
               <div className="post-img">
                 <img referrerPolicy="no-referrer" className="card-img-top" src={decodeURIComponent(imgUrl)} />
               </div>
